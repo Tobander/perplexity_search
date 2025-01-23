@@ -1,0 +1,9 @@
+streamlit
+pandas
+asyncio
+nest_asyncio
+openai
+termcolor
+matplotlib
+altair
+yfinance
