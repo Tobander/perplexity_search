@@ -4,8 +4,8 @@ import os
 
 # Set the page configuration
 st.set_page_config(
-    page_title="Tobander 🇯🇲 🇩🇪",
-    page_icon="🇯🇲 🇩🇪",
+    page_title="LLM Prototype",
+    page_icon="🧠",
     layout="centered",  # Options: "centered" or "wide"
     initial_sidebar_state="auto"  # Options: "auto", "expanded", "collapsed"
 )
@@ -26,11 +26,11 @@ def perplexity_call(model, messages):
     return response
 
 # Streamlit App UI
-st.title("TOBANDER Perplexity AI Search Engine")
-st.write("Ask any question and get a response from Perplexity AI!")
+st.title("LLM KI Assistent")
+st.write("Was hast du für eine Frage?")
 
 # User input
-user_input = st.text_input("Enter your question here:")
+user_input = st.text_input("Stelle deine Frage hier:")
 
 # Call API when user submits a question
 if st.button("Get Answer") and user_input:
@@ -40,8 +40,8 @@ if st.button("Get Answer") and user_input:
             {
                 "role": "system",
                 "content": (
-                    "You are an artificial intelligence assistant and you need to "
-                    "engage in a helpful, detailed, polite conversation with a user."
+                    "Du bist ein intelligenter KI Assistent, der Usern dabei hilft, ihre Fragen zu beantworten."
+                    "Du antwortest stets auf DEUTSCH."
                 ),
             },
             {"role": "user", "content": user_input},
@@ -57,16 +57,16 @@ if st.button("Get Answer") and user_input:
             citations = result.citations
 
             # Display the response
-            st.subheader("Answer")
+            st.subheader("Antwort")
             st.write(answer)
 
             # Display citations
-            st.subheader("Citations")
+            st.subheader("Quellen")
             if citations:
                 for idx, citation in enumerate(citations, start=1):
                     st.write(f"[{idx}] [{citation}]({citation})")
             else:
-                st.write("No citations available.")
+                st.write("Keine Quellen gefunden.")
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
