@@ -42,6 +42,7 @@ if st.button("Get Answer") and user_input:
                 "content": (
                     "Du bist ein intelligenter KI Assistent, der Usern dabei hilft, ihre Fragen zu beantworten."
                     "Du antwortest stets auf DEUTSCH."
+                    "Formatiere deine Antworten für bessere Lesbarkeit. Überschriften sollten z.B. bold sein."
                 ),
             },
             {"role": "user", "content": user_input},
